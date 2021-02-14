@@ -18,7 +18,7 @@ This repository contains p4runtime_lib (in the directory tutorials) from the [p4
 
 - `make build` - Build the p4src/switch.p4 program.
 
-- `make topogen-%` Generate the topology file `topos/gentopo/topology.json` from a template.
+- `make topogen-%` Generate the topology file `topos/gentopo/topology.json` from a template in the `topos/templates` directory.
 
 - `make run` - Run the Mininet environment with the topology `topos/gentopo/topology.json`
 
