@@ -1,0 +1,51 @@
+{
+    "hosts": {
+        "h1": {
+            "ip": "10.0.0.2/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.1 h1-eth0"]
+        },
+        "h2": {
+            "ip": "10.0.0.3/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.1 h2-eth0"]
+        },
+        "h3": {
+            "ip": "10.0.0.4/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.1 h3-eth0"]
+        },
+        "h4": {
+            "ip": "10.0.0.5/24",
+            "mac": "08:00:00:00:04:44",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.1 h4-eth0"]
+        }
+    },
+    "switches": {
+        "s1": { "type": "p4", "runtime_json" : "topos/2sites/switch-runtime.json" },
+        "s2": { "type": "p4", "runtime_json" : "topos/2sites/switch-runtime.json" }
+    },
+    "routers": {
+        "r1": {
+            "interface_configs": [
+                { "ip": "172.16.0.1/24", "port": "p1", "nat": true },
+                { "ip": "10.0.0.1/24", "port": "p2", "nat": false }
+            ]
+        },
+        "r2": {
+            "interface_configs": [
+                { "ip": "172.16.0.2/24", "port": "p1", "nat": true },
+                { "ip": "10.0.0.1/24", "port": "p2", "nat": false }
+            ]
+        }
+    },
+    "links": [
+        ["s1-p1", "r1-p2"], ["r1-p1", "r2-p1"], ["s2-p1", "r2-p2"],
+        ["h1", "s1-p2"], ["h2", "s1-p3"],
+        ["h3", "s2-p2"], ["h4", "s2-p3"]
+    ]
+}

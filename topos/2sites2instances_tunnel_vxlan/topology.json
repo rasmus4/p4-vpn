@@ -1,0 +1,149 @@
+{
+    "hosts": {
+        "h1": {
+            "ip": "10.0.0.1/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": []
+        },
+        "h2": {
+            "ip": "10.0.0.2/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": []
+        },
+        "h3": {
+            "ip": "10.0.0.1/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": []
+        },
+        "h4": {
+            "ip": "10.0.0.2/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": []
+        },
+        "h5": {
+            "ip": "10.0.0.3/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": []
+        },
+        "h6": {
+            "ip": "10.0.0.4/24",
+            "mac": "08:00:00:00:04:44",
+            "commands": [],
+            "late_commands": []
+        },
+        "h7": {
+            "ip": "10.0.0.3/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": []
+        },
+        "h8": {
+            "ip": "10.0.0.4/24",
+            "mac": "08:00:00:00:04:44",
+            "commands": [],
+            "late_commands": []
+        }
+    },
+    "switches": {
+        "s1": { "type": "bridge" },
+        "s2": { "type": "bridge" },
+        "s3": { "type": "bridge" },
+        "s4": { "type": "bridge" }
+    },
+    "routers": {
+        "r1": {
+            "interface_configs": [
+                { "ip": "172.16.0.1/24", "port": "p1", "nat": true },
+                { "ip": "10.0.0.100/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [
+                "iptables -t nat -A PREROUTING -p udp -i r1-eth1 --dport 4789 -j DNAT --to-destination 10.0.0.61:4789",
+                "iptables -A FORWARD -p udp -d 10.0.0.61 --dport 4789 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT"
+            ]
+        },
+        "r2": {
+            "interface_configs": [
+                { "ip": "172.16.0.2/24", "port": "p1", "nat": true },
+                { "ip": "10.0.0.100/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [
+                "iptables -t nat -A PREROUTING -p udp -i r2-eth1 --dport 4789 -j DNAT --to-destination 10.0.0.62:4789",
+                "iptables -A FORWARD -p udp -d 10.0.0.62 --dport 4789 -m state --state NEW,ESTABLISHED,RELATED -j ACCEPT"
+            ]
+        }
+    },
+    "tunnels": {
+        "t1": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "10.0.0.61/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" },
+                { "ip": "0.0.0.0/0", "port": "p3" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "10.0.0.61",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.51",
+                    "bridge_ports": [ "p2" ]
+                },
+                {
+                    "vni": 20,
+                    "tunnel_port": "p1",
+                    "local": "10.0.0.61",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.51",
+                    "bridge_ports": [ "p3" ]
+                }
+            ],
+            "late_commands": [ "ip route add 172.16.0.0/24 via 10.0.0.100" ]
+        },
+        "t2": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "10.0.0.62/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" },
+                { "ip": "0.0.0.0/0", "port": "p3" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "10.0.0.62",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.52",
+                    "bridge_ports": [ "p2" ]
+                },
+                {
+                    "vni": 20,
+                    "tunnel_port": "p1",
+                    "local": "10.0.0.62",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.52",
+                    "bridge_ports": [ "p3" ]
+                }
+            ],
+            "late_commands": [ "ip route add 172.16.0.0/24 via 10.0.0.100" ]
+        }
+    },
+    "links": [
+        ["t1-p1", "r1-p2"], ["t2-p1", "r2-p2"], ["r1-p1", "r2-p1"],
+        ["t1-p2", "s1-p1"], ["t1-p3", "s2-p1"],
+        ["t2-p2", "s3-p1"], ["t2-p3", "s4-p1"],
+        ["h1", "s1-p2"], ["h2", "s1-p3"],
+        ["h3", "s2-p2"], ["h4", "s2-p3"],
+        ["h5", "s3-p2"], ["h6", "s3-p3"],
+        ["h7", "s4-p2"], ["h8", "s4-p3"]
+    ]
+}

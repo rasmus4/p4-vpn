@@ -1,0 +1,78 @@
+{
+    "hosts": {
+        "h1": {
+            "ip": "10.0.0.1/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.51 h1-eth0"]
+        },
+        "h2": {
+            "ip": "10.0.0.2/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.51 h2-eth0"]
+        },
+        "h3": {
+            "ip": "10.0.0.3/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.52 h3-eth0"]
+        },
+        "h4": {
+            "ip": "10.0.0.4/24",
+            "mac": "08:00:00:00:04:44",
+            "commands": [],
+            "late_commands": ["route add default gw 10.0.0.52 h4-eth0"]
+        }
+    },
+    "switches": {
+        "s1": { "type": "bridge" },
+        "s2": { "type": "bridge" }
+    },
+    "routers": {},
+    "tunnels": {
+        "t1": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "172.16.0.1/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "172.16.0.1",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.51",
+                    "bridge_ports": [ "p2" ]
+                }
+            ],
+            "late_commands": []
+        },
+        "t2": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "172.16.0.2/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "172.16.0.2",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "10.0.0.52",
+                    "bridge_ports": [ "p2" ]
+                }
+            ],
+            "late_commands": []
+        }
+    },
+    "links": [
+        ["t1-p2", "s1-p1"], ["t2-p2", "s2-p1"], ["t2-p1", "t1-p1"],
+        ["h1", "s1-p2"], ["h2", "s1-p3"],
+        ["h3", "s2-p2"], ["h4", "s2-p3"]
+    ]
+}

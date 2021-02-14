@@ -1,0 +1,4315 @@
+{
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp", 24, false],
+        ["tmp_0", 48, false],
+        ["tmp_1", 9, false],
+        ["Geneve_tmp", 1, false],
+        ["Geneve_tmp_0", 1, false],
+        ["Geneve_tmp_1", 1, false],
+        ["metadata.vni", 24, false],
+        ["metadata.is_reply", 4, false],
+        ["metadata.is_egress_packet", 4, false],
+        ["_padding_0", 4, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["instance_type", 32, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["egress_global_timestamp", 48, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["parser_error", 32, false],
+        ["priority", 3, false],
+        ["_padding", 3, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 2,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 3,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 4,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["udpLength", 16, false],
+        ["udpChecksum", 16, false]
+      ]
+    },
+    {
+      "name" : "geneve_t",
+      "id" : 5,
+      "fields" : [
+        ["version", 2, false],
+        ["optionsLength", 6, false],
+        ["O", 1, false],
+        ["C", 1, false],
+        ["reserved", 6, false],
+        ["protocol", 16, false],
+        ["vni", 24, false],
+        ["reserved2", 8, false]
+      ]
+    },
+    {
+      "name" : "geneve_opt_header_t",
+      "id" : 6,
+      "fields" : [
+        ["optionClass", 16, false],
+        ["type", 8, false],
+        ["reserved", 3, false],
+        ["length", 5, false]
+      ]
+    },
+    {
+      "name" : "arp_t",
+      "id" : 7,
+      "fields" : [
+        ["hardwareType", 16, false],
+        ["protocolType", 16, false],
+        ["hardwareLength", 8, false],
+        ["protocolLength", 8, false],
+        ["operation", 16, false],
+        ["senderHwAddr", 48, false],
+        ["senderIPAddr", 32, false],
+        ["targetHwAddr", 48, false],
+        ["targetIPAddr", 32, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 3,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 4,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "geneve",
+      "id" : 5,
+      "header_type" : "geneve_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "geneve_opt_header",
+      "id" : 6,
+      "header_type" : "geneve_opt_header_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "inner_ethernet",
+      "id" : 7,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "inner_ipv4",
+      "id" : 8,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "inner_udp",
+      "id" : 9,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "arp",
+      "id" : 10,
+      "header_type" : "arp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [
+    {
+      "id" : 1,
+      "name" : "tuple_1",
+      "source_info" : {
+        "filename" : "p4src/geneve.p4",
+        "line" : 463,
+        "column" : 28,
+        "source_fragment" : "{}"
+      },
+      "elements" : []
+    },
+    {
+      "id" : 2,
+      "name" : "fl",
+      "elements" : []
+    }
+  ],
+  "errors" : [
+    ["NoError", 0],
+    ["PacketTooShort", 1],
+    ["NoMatch", 2],
+    ["StackOutOfBounds", 3],
+    ["HeaderTooShort", 4],
+    ["ParserTimeout", 5],
+    ["ParserInvalidArgument", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "start",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0806",
+              "mask" : null,
+              "next_state" : "parse_arp"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_arp",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "arp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x17c1",
+              "mask" : null,
+              "next_state" : "parse_geneve"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_geneve",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "geneve"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : "parse_geneve_option"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00",
+              "mask" : null,
+              "next_state" : "post_parse_geneve"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "optionsLength"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_geneve_option",
+          "id" : 5,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "geneve_opt_header"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0xff00",
+              "mask" : null,
+              "next_state" : "post_parse_geneve"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["geneve_opt_header", "optionClass"]
+            }
+          ]
+        },
+        {
+          "name" : "post_parse_geneve",
+          "id" : 6,
+          "parser_ops" : [],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x6558",
+              "mask" : null,
+              "next_state" : "parse_inner_ethernet"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_inner_ethernet",
+          "id" : 7,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "inner_ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_inner_ipv4"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["inner_ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_inner_ipv4",
+          "id" : 8,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "inner_ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "parse_vsets" : [],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "p4src/nve.p4",
+        "line" : 146,
+        "column" : 8,
+        "source_fragment" : "MyDeparser"
+      },
+      "order" : ["ethernet", "ipv4", "udp", "geneve", "geneve_opt_header", "inner_ethernet", "inner_ipv4", "inner_udp", "arp"]
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "p4src/geneve.p4",
+        "line" : 346,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [
+    {
+      "id" : 1,
+      "name" : "local_digest_t",
+      "source_info" : {
+        "filename" : "p4src/geneve.p4",
+        "line" : 125,
+        "column" : 34,
+        "source_fragment" : "{meta.vni, hdr.ethernet.srcAddr, standard_metadata.ingress_port}"
+      },
+      "elements" : [
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_0"]
+        },
+        {
+          "type" : "field",
+          "value" : ["scalars", "tmp_1"]
+        }
+      ]
+    }
+  ],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "MyIngress.Geneve.drop",
+      "id" : 1,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 42,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 42,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.drop",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 42,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.broadcast",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "mcast_grp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.vni"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 46,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.mcast_grp = (bit<16>)meta.vni + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.broadcast",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "mcast_grp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["scalars", "metadata.vni"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 46,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.mcast_grp = (bit<16>)meta.vni + 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.local_forward",
+      "id" : 6,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 50,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.local_forward",
+      "id" : 7,
+      "runtime_data" : [
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 50,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.decapsulate",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 54,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.setInvalid()"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ethernet"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 55,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.setInvalid()"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 56,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.setInvalid()"
+          }
+        },
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "geneve"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 57,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.setInvalid()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.set_ingress_vni",
+      "id" : 9,
+      "runtime_data" : [
+        {
+          "name" : "vni",
+          "bitwidth" : 24
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.vni"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 65,
+            "column" : 8,
+            "source_fragment" : "meta.vni = vni"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.set_meta_vni",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.vni"]
+            },
+            {
+              "type" : "field",
+              "value" : ["geneve", "vni"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 69,
+            "column" : 8,
+            "source_fragment" : "meta.vni = hdr.geneve.vni"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.remote_forward",
+      "id" : 11,
+      "runtime_data" : [
+        {
+          "name" : "srcAddr",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "dstAddr",
+          "bitwidth" : 32
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 9,
+            "column" : 33,
+            "source_fragment" : "0x1; ..."
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_ipv4"
+            },
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 75,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_ipv4 = hdr.ipv4"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 77,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x04"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 78,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.version = 4"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ihl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x05"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 79,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ihl = 5"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "diffserv"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 80,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.diffserv = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x0032"
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv4", "totalLen"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 81,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = HEADER_SIZE_ETH + ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "identification"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 86,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.identification = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "flags"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x02"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 87,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.flags = 2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "fragOffset"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 88,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.fragOffset = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 89,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x11"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 23,
+            "column" : 28,
+            "source_fragment" : "0x11; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "hdrChecksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 91,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.hdrChecksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 92,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.srcAddr = srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 93,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = dstAddr"
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_udp"
+            },
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 95,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_udp = hdr.udp"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 97,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x7a11"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 98,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.srcPort = 31249"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x17c1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 25,
+            "column" : 32,
+            "source_fragment" : "6081; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "udpLength"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x001e"
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv4", "totalLen"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 100,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.udpLength = HEADER_SIZE_ETH + ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "udpChecksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 104,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.udpChecksum = 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "geneve"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 106,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 107,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.version = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "optionsLength"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 108,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.optionsLength = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "O"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 109,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.O = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "C"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 110,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.C = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "reserved"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 111,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.reserved = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x6558"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 21,
+            "column" : 42,
+            "source_fragment" : "0x6558; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "vni"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.vni"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 113,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.vni = meta.vni"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "reserved2"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 114,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.reserved2 = 0"
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_ethernet"
+            },
+            {
+              "type" : "header",
+              "value" : "ethernet"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 116,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_ethernet = hdr.ethernet"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ethernet"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 118,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0800"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 19,
+            "column" : 26,
+            "source_fragment" : "0x800; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "local",
+                    "value" : 0
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 120,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = (macAddr_t) srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "local",
+                    "value" : 1
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 121,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = (macAddr_t) dstAddr"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyIngress.Geneve.local_digest",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.vni"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 125,
+            "column" : 35,
+            "source_fragment" : "meta.vni"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 125,
+            "column" : 45,
+            "source_fragment" : "hdr.ethernet.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "ingress_port"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 125,
+            "column" : 67,
+            "source_fragment" : "standard_metadata.ingress_port"
+          }
+        },
+        {
+          "op" : "generate_digest",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 125,
+            "column" : 8,
+            "source_fragment" : "digest<local_digest_t>(1, {meta.vni, hdr.ethernet.srcAddr, standard_metadata.ingress_port})"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 9,
+            "column" : 33,
+            "source_fragment" : "0x1; ..."
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_0",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "remove_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "geneve_opt_header"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 276,
+            "column" : 16,
+            "source_fragment" : "hdr.geneve_opt_header.setInvalid()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_1",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.is_egress_packet"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 271,
+            "column" : 12,
+            "source_fragment" : "meta.is_egress_packet = 1"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_2",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_3",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.drop",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/nve.p4",
+            "line" : 132,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.drop",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 369,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.drop",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 369,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.drop",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 369,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.drop",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "mark_to_drop",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "standard_metadata"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 369,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop(standard_metadata)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.remote_forward",
+      "id" : 23,
+      "runtime_data" : [
+        {
+          "name" : "dstAddr",
+          "bitwidth" : 32
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 373,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "local",
+                    "value" : 0
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 374,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = (macAddr_t) dstAddr"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "MyEgress.Geneve.remote_broadcast",
+      "id" : 24,
+      "runtime_data" : [
+        {
+          "name" : "srcAddr",
+          "bitwidth" : 32
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_ipv4"
+            },
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 378,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_ipv4 = hdr.ipv4"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ipv4"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 380,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x04"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 381,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.version = 4"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ihl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x05"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 382,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ihl = 5"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "diffserv"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 383,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.diffserv = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x0032"
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv4", "totalLen"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 384,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = HEADER_SIZE_ETH + ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "identification"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 389,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.identification = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "flags"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x02"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 390,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.flags = 2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "fragOffset"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 391,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.fragOffset = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 392,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = 0xFF"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x11"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 23,
+            "column" : 28,
+            "source_fragment" : "0x11; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "hdrChecksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 394,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.hdrChecksum = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 395,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.srcAddr = srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 396,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = (ip4Addr_t) 0"
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_udp"
+            },
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 398,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_udp = hdr.udp"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "udp"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 400,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "srcPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x7a11"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 401,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.srcPort = 31249"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x17c1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 25,
+            "column" : 32,
+            "source_fragment" : "6081; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "udpLength"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "hexstr",
+                        "value" : "0x001e"
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["inner_ipv4", "totalLen"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 403,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.udpLength = HEADER_SIZE_ETH + ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "udpChecksum"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 407,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.udpChecksum = 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "geneve"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 409,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "version"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 410,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.version = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "optionsLength"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x01"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 411,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.optionsLength = 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "O"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 412,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.O = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "C"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 413,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.C = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "reserved"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 414,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.reserved = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "protocol"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x6558"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 21,
+            "column" : 42,
+            "source_fragment" : "0x6558; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "vni"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "metadata.vni"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 416,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.vni = meta.vni"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve", "reserved2"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 417,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve.reserved2 = 0"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "geneve_opt_header"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 419,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve_opt_header.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve_opt_header", "optionClass"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0xff00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 30,
+            "column" : 47,
+            "source_fragment" : "0xFF00; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve_opt_header", "type"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 31,
+            "column" : 29,
+            "source_fragment" : "0x00; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve_opt_header", "reserved"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 422,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve_opt_header.reserved = 0"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["geneve_opt_header", "length"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 423,
+            "column" : 8,
+            "source_fragment" : "hdr.geneve_opt_header.length = 0"
+          }
+        },
+        {
+          "op" : "assign_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "inner_ethernet"
+            },
+            {
+              "type" : "header",
+              "value" : "ethernet"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 425,
+            "column" : 8,
+            "source_fragment" : "hdr.inner_ethernet = hdr.ethernet"
+          }
+        },
+        {
+          "op" : "add_header",
+          "parameters" : [
+            {
+              "type" : "header",
+              "value" : "ethernet"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 427,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.setValid()"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0800"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/headers.p4",
+            "line" : 19,
+            "column" : 26,
+            "source_fragment" : "0x800; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "local",
+                    "value" : 0
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 429,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = (macAddr_t) srcAddr"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_4",
+      "id" : 25,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_5",
+      "id" : 26,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_6",
+      "id" : 27,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "recirculate",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 463,
+            "column" : 16,
+            "source_fragment" : "recirculate({})"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "act_7",
+      "id" : 28,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : true
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_8",
+      "id" : 29,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "Geneve_tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "b2d",
+                  "left" : null,
+                  "right" : {
+                    "type" : "bool",
+                    "value" : false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name" : "act_9",
+      "id" : 30,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "clone_egress_pkt_to_egress",
+          "parameters" : [
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x2"
+            }
+          ],
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 472,
+            "column" : 20,
+            "source_fragment" : "clone(CloneType.E2E, 1)"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "p4src/nve.p4",
+        "line" : 104,
+        "column" : 8,
+        "source_fragment" : "MyIngress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "tbl_act",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 265,
+            "column" : 42,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [13],
+          "actions" : ["act"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "act" : null
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_0",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 271,
+            "column" : 34,
+            "source_fragment" : "="
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15],
+          "actions" : ["act_1"],
+          "base_default_next" : "node_6",
+          "next_tables" : {
+            "act_1" : "node_6"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_1",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 276,
+            "column" : 16,
+            "source_fragment" : "hdr.geneve_opt_header.setInvalid()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [14],
+          "actions" : ["act_0"],
+          "base_default_next" : "tbl_Geneve_set_meta_vni",
+          "next_tables" : {
+            "act_0" : "tbl_Geneve_set_meta_vni"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_Geneve_set_meta_vni",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 279,
+            "column" : 12,
+            "source_fragment" : "set_meta_vni()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [10],
+          "actions" : ["MyIngress.Geneve.set_meta_vni"],
+          "base_default_next" : "MyIngress.Geneve.egress_dmac_vni",
+          "next_tables" : {
+            "MyIngress.Geneve.set_meta_vni" : "MyIngress.Geneve.egress_dmac_vni"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.Geneve.egress_dmac_vni",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 149,
+            "column" : 10,
+            "source_fragment" : "egress_dmac_vni"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.geneve.vni",
+              "target" : ["geneve", "vni"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.inner_ethernet.dstAddr",
+              "target" : ["inner_ethernet", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [4, 6],
+          "actions" : ["MyIngress.Geneve.broadcast", "MyIngress.Geneve.local_forward"],
+          "base_default_next" : "tbl_Geneve_decapsulate",
+          "next_tables" : {
+            "MyIngress.Geneve.broadcast" : "tbl_Geneve_decapsulate",
+            "MyIngress.Geneve.local_forward" : "tbl_Geneve_decapsulate"
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_Geneve_decapsulate",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 292,
+            "column" : 12,
+            "source_fragment" : "decapsulate()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [8],
+          "actions" : ["MyIngress.Geneve.decapsulate"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.Geneve.decapsulate" : null
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.Geneve.ingress_port_to_vni",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 179,
+            "column" : 10,
+            "source_fragment" : "ingress_port_to_vni"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.ingress_port",
+              "target" : ["standard_metadata", "ingress_port"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [9, 1],
+          "actions" : ["MyIngress.Geneve.set_ingress_vni", "MyIngress.Geneve.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "__HIT__" : "tbl_act_2",
+            "__MISS__" : "tbl_act_3"
+          },
+          "default_entry" : {
+            "action_id" : 1,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_2",
+          "id" : 7,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16],
+          "actions" : ["act_2"],
+          "base_default_next" : "node_14",
+          "next_tables" : {
+            "act_2" : "node_14"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_3",
+          "id" : 8,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [17],
+          "actions" : ["act_3"],
+          "base_default_next" : "node_14",
+          "next_tables" : {
+            "act_3" : "node_14"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyIngress.Geneve.ingress_smac_vni",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 210,
+            "column" : 10,
+            "source_fragment" : "ingress_smac_vni"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "meta.vni",
+              "target" : ["scalars", "metadata.vni"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ethernet.srcAddr",
+              "target" : ["ethernet", "srcAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.ingress_port",
+              "target" : ["standard_metadata", "ingress_port"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [12, 0],
+          "actions" : ["MyIngress.Geneve.local_digest", "NoAction"],
+          "base_default_next" : "MyIngress.Geneve.ingress_dmac_vni",
+          "next_tables" : {
+            "MyIngress.Geneve.local_digest" : "MyIngress.Geneve.ingress_dmac_vni",
+            "NoAction" : "MyIngress.Geneve.ingress_dmac_vni"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "MyIngress.Geneve.ingress_dmac_vni",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 191,
+            "column" : 10,
+            "source_fragment" : "ingress_dmac_vni"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "meta.vni",
+              "target" : ["scalars", "metadata.vni"],
+              "mask" : null
+            },
+            {
+              "match_type" : "lpm",
+              "name" : "hdr.ethernet.dstAddr",
+              "target" : ["ethernet", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [11, 5, 7, 2],
+          "actions" : ["MyIngress.Geneve.remote_forward", "MyIngress.Geneve.broadcast", "MyIngress.Geneve.local_forward", "MyIngress.Geneve.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.Geneve.remote_forward" : null,
+            "MyIngress.Geneve.broadcast" : null,
+            "MyIngress.Geneve.local_forward" : null,
+            "MyIngress.Geneve.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_Geneve_drop",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 338,
+            "column" : 16,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [3],
+          "actions" : ["MyIngress.Geneve.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyIngress.Geneve.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 259,
+            "column" : 12,
+            "source_fragment" : "hdr.geneve.isValid() && ..."
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "and",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "and",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "and",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "d2b",
+                              "left" : null,
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["geneve", "$valid$"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "d2b",
+                              "left" : null,
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["geneve_opt_header", "$valid$"]
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "==",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["geneve_opt_header", "optionClass"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xff00"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["geneve_opt_header", "type"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "!=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "instance_type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00000000"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_act",
+          "false_next" : "node_4"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 270,
+            "column" : 17,
+            "source_fragment" : "hdr.geneve.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["geneve", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "tbl_act_0",
+          "false_next" : "MyIngress.Geneve.ingress_port_to_vni"
+        },
+        {
+          "name" : "node_6",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 272,
+            "column" : 16,
+            "source_fragment" : "hdr.geneve_opt_header.isValid() && ..."
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "and",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "d2b",
+                      "left" : null,
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["geneve_opt_header", "$valid$"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["geneve_opt_header", "optionClass"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff00"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["geneve_opt_header", "type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "tbl_act_1",
+          "false_next" : "tbl_Geneve_set_meta_vni"
+        },
+        {
+          "name" : "node_14",
+          "id" : 3,
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "Geneve_tmp"]
+              }
+            }
+          },
+          "true_next" : "MyIngress.Geneve.ingress_smac_vni",
+          "false_next" : "tbl_Geneve_drop"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "p4src/nve.p4",
+        "line" : 128,
+        "column" : 8,
+        "source_fragment" : "MyEgress"
+      },
+      "init_table" : "node_20",
+      "tables" : [
+        {
+          "name" : "tbl_Geneve_drop_0",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 460,
+            "column" : 16,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21],
+          "actions" : ["MyEgress.Geneve.drop"],
+          "base_default_next" : "node_36",
+          "next_tables" : {
+            "MyEgress.Geneve.drop" : "node_36"
+          },
+          "default_entry" : {
+            "action_id" : 21,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyEgress.Geneve.nve_broadcast",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 445,
+            "column" : 10,
+            "source_fragment" : "nve_broadcast"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "standard_metadata.egress_port",
+              "target" : ["standard_metadata", "egress_port"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [24, 20],
+          "actions" : ["MyEgress.Geneve.remote_broadcast", "MyEgress.Geneve.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "__HIT__" : "tbl_act_4",
+            "__MISS__" : "tbl_act_5"
+          },
+          "default_entry" : {
+            "action_id" : 20,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_4",
+          "id" : 14,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25],
+          "actions" : ["act_4"],
+          "base_default_next" : "node_26",
+          "next_tables" : {
+            "act_4" : "node_26"
+          },
+          "default_entry" : {
+            "action_id" : 25,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_5",
+          "id" : 15,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [26],
+          "actions" : ["act_5"],
+          "base_default_next" : "node_26",
+          "next_tables" : {
+            "act_5" : "node_26"
+          },
+          "default_entry" : {
+            "action_id" : 26,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_6",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 463,
+            "column" : 16,
+            "source_fragment" : "recirculate({})"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [27],
+          "actions" : ["act_6"],
+          "base_default_next" : "node_36",
+          "next_tables" : {
+            "act_6" : "node_36"
+          },
+          "default_entry" : {
+            "action_id" : 27,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "MyEgress.Geneve.remote_nexthop",
+          "id" : 17,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 432,
+            "column" : 10,
+            "source_fragment" : "remote_nexthop"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "name" : "hdr.geneve.vni",
+              "target" : ["geneve", "vni"],
+              "mask" : null
+            },
+            {
+              "match_type" : "exact",
+              "name" : "hdr.ipv4.dstAddr",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23, 19],
+          "actions" : ["MyEgress.Geneve.remote_forward", "MyEgress.Geneve.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "__HIT__" : "tbl_act_7",
+            "__MISS__" : "tbl_act_8"
+          },
+          "default_entry" : {
+            "action_id" : 19,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "tbl_act_7",
+          "id" : 18,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [28],
+          "actions" : ["act_7"],
+          "base_default_next" : "node_33",
+          "next_tables" : {
+            "act_7" : "node_33"
+          },
+          "default_entry" : {
+            "action_id" : 28,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_8",
+          "id" : 19,
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [29],
+          "actions" : ["act_8"],
+          "base_default_next" : "node_33",
+          "next_tables" : {
+            "act_8" : "node_33"
+          },
+          "default_entry" : {
+            "action_id" : 29,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_act_9",
+          "id" : 20,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 472,
+            "column" : 20,
+            "source_fragment" : "clone(CloneType.E2E, 1)"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [30],
+          "actions" : ["act_9"],
+          "base_default_next" : "node_36",
+          "next_tables" : {
+            "act_9" : "node_36"
+          },
+          "default_entry" : {
+            "action_id" : 30,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_Geneve_drop_1",
+          "id" : 21,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 475,
+            "column" : 20,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [22],
+          "actions" : ["MyEgress.Geneve.drop"],
+          "base_default_next" : "node_36",
+          "next_tables" : {
+            "MyEgress.Geneve.drop" : "node_36"
+          },
+          "default_entry" : {
+            "action_id" : 22,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        },
+        {
+          "name" : "tbl_drop",
+          "id" : 22,
+          "source_info" : {
+            "filename" : "p4src/nve.p4",
+            "line" : 138,
+            "column" : 12,
+            "source_fragment" : "drop()"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18],
+          "actions" : ["MyEgress.drop"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "MyEgress.drop" : null
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : true,
+            "action_data" : [],
+            "action_entry_const" : true
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_20",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 458,
+            "column" : 12,
+            "source_fragment" : "standard_metadata.egress_port == PORT_REMOTE_BROADCAST"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "egress_port"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00f0"
+              }
+            }
+          },
+          "true_next" : "node_21",
+          "false_next" : "node_28"
+        },
+        {
+          "name" : "node_21",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 459,
+            "column" : 16,
+            "source_fragment" : "meta.is_egress_packet == 1"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["scalars", "metadata.is_egress_packet"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x01"
+              }
+            }
+          },
+          "true_next" : "tbl_Geneve_drop_0",
+          "false_next" : "MyEgress.Geneve.nve_broadcast"
+        },
+        {
+          "name" : "node_26",
+          "id" : 6,
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "Geneve_tmp_0"]
+              }
+            }
+          },
+          "true_next" : "tbl_act_6",
+          "false_next" : "node_36"
+        },
+        {
+          "name" : "node_28",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 466,
+            "column" : 17,
+            "source_fragment" : "hdr.geneve_opt_header.isValid() && ..."
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "and",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "d2b",
+                      "left" : null,
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["geneve_opt_header", "$valid$"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "==",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["geneve_opt_header", "optionClass"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff00"
+                      }
+                    }
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["geneve_opt_header", "type"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "node_29",
+          "false_next" : "node_36"
+        },
+        {
+          "name" : "node_29",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "p4src/geneve.p4",
+            "line" : 470,
+            "column" : 16,
+            "source_fragment" : "standard_metadata.egress_port == PORT_REMOTE"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["standard_metadata", "egress_port"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0001"
+              }
+            }
+          },
+          "true_next" : "MyEgress.Geneve.remote_nexthop",
+          "false_next" : "node_36"
+        },
+        {
+          "name" : "node_33",
+          "id" : 9,
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["scalars", "Geneve_tmp_1"]
+              }
+            }
+          },
+          "true_next" : "tbl_act_9",
+          "false_next" : "tbl_Geneve_drop_1"
+        },
+        {
+          "name" : "node_36",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "p4src/nve.p4",
+            "line" : 137,
+            "column" : 12,
+            "source_fragment" : "standard_metadata.egress_port == standard_metadata.ingress_port && meta.is_reply == 0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "egress_port"]
+                  },
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["standard_metadata", "ingress_port"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["scalars", "metadata.is_reply"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "tbl_drop"
+        }
+      ]
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "p4src/geneve.p4",
+        "line" : 346,
+        "column" : 8,
+        "source_fragment" : "update_checksum( ..."
+      },
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "verify" : false,
+      "update" : true,
+      "if_cond" : {
+        "type" : "expression",
+        "value" : {
+          "op" : "d2b",
+          "left" : null,
+          "right" : {
+            "type" : "field",
+            "value" : ["ipv4", "$valid$"]
+          }
+        }
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.egress_global_timestamp",
+      ["standard_metadata", "egress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ],
+    [
+      "intrinsic_metadata.priority",
+      ["standard_metadata", "priority"]
+    ]
+  ],
+  "program" : "p4src/nve.p4",
+  "__meta__" : {
+    "version" : [2, 18],
+    "compiler" : "https://github.com/p4lang/p4c"
+  }
+}

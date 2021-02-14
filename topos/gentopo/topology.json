@@ -1,0 +1,385 @@
+{
+    "debug": {
+        "t0_a": {
+            "gateway": "10.<TWIN-NO-OVERLAP>.0.1", 
+            "hosts": {
+                "t0_a_h1": {
+                    "commands": [], 
+                    "ip": "10.0.0.10/24", 
+                    "late_commands": [
+                        "ip route add default via 10.0.0.1", 
+                        "ethtool -K t0_a_h1-eth0 tso off tx off", 
+                        "ip l set dev t0_a_h1-eth0 mtu 1450"
+                    ], 
+                    "mac": "08:00:00:00:00:00"
+                }, 
+                "t0_a_h2": {
+                    "commands": [], 
+                    "ip": "10.0.0.11/24", 
+                    "late_commands": [
+                        "ip route add default via 10.0.0.1", 
+                        "ethtool -K t0_a_h2-eth0 tso off tx off", 
+                        "ip l set dev t0_a_h2-eth0 mtu 1450"
+                    ], 
+                    "mac": "08:00:00:00:00:01"
+                }
+            }, 
+            "links": [
+                [
+                    "t0_a_b1", 
+                    "t0_a_h1"
+                ], 
+                [
+                    "t0_a_b1", 
+                    "t0_a_h2"
+                ], 
+                [
+                    "t0_a_b1", 
+                    "t0_a_r1-p2"
+                ], 
+                [
+                    "EDGE", 
+                    "t0_a_r1-p1"
+                ]
+            ], 
+            "routers": {
+                "t0_a_r1": {
+                    "interface_configs": [
+                        {
+                            "ip": "10.0.0.1/24", 
+                            "mac": "88:00:00:00:00:00", 
+                            "nat": false, 
+                            "port": "p2"
+                        }, 
+                        {
+                            "ip": "10.0.0.1/24", 
+                            "mac": "88:00:00:00:00:00", 
+                            "nat": false, 
+                            "port": "p1"
+                        }
+                    ], 
+                    "late_commands": [
+                        "ethtool -K t0_a_r1-eth1 tso off tx off", 
+                        "ip l set dev t0_a_r1-eth1 mtu 1450", 
+                        "ethtool -K t0_a_r1-eth2 tso off tx off", 
+                        "ip l set dev t0_a_r1-eth2 mtu 1450", 
+                        "ip route del 10.0.0.0/24 dev t0_a_r1-eth1", 
+                        "ip route add 10.0.1.1 dev t0_a_r1-eth1", 
+                        "ip route add 10.0.1.0/24 via 10.0.1.1"
+                    ]
+                }
+            }, 
+            "site": 0, 
+            "subnet": "10.<TWIN-NO-OVERLAP>.0.0/24", 
+            "switches": {
+                "t0_a_b1": {
+                    "type": "bridge"
+                }
+            }, 
+            "systemid": 0, 
+            "twin": 0
+        }, 
+        "t0_b": {
+            "gateway": "10.<TWIN-NO-OVERLAP>.1.1", 
+            "hosts": {
+                "t0_b_h1": {
+                    "commands": [], 
+                    "ip": "10.0.1.10/24", 
+                    "late_commands": [
+                        "ip route add default via 10.0.1.1", 
+                        "ethtool -K t0_b_h1-eth0 tso off tx off", 
+                        "ip l set dev t0_b_h1-eth0 mtu 1450"
+                    ], 
+                    "mac": "08:00:00:00:01:00"
+                }, 
+                "t0_b_h2": {
+                    "commands": [], 
+                    "ip": "10.0.1.11/24", 
+                    "late_commands": [
+                        "ip route add default via 10.0.1.1", 
+                        "ethtool -K t0_b_h2-eth0 tso off tx off", 
+                        "ip l set dev t0_b_h2-eth0 mtu 1450"
+                    ], 
+                    "mac": "08:00:00:00:01:01"
+                }
+            }, 
+            "links": [
+                [
+                    "t0_b_b1", 
+                    "t0_b_h1"
+                ], 
+                [
+                    "t0_b_b1", 
+                    "t0_b_h2"
+                ], 
+                [
+                    "t0_b_b1", 
+                    "t0_b_r1-p2"
+                ], 
+                [
+                    "EDGE", 
+                    "t0_b_r1-p1"
+                ]
+            ], 
+            "routers": {
+                "t0_b_r1": {
+                    "interface_configs": [
+                        {
+                            "ip": "10.0.1.1/24", 
+                            "mac": "88:00:00:00:01:00", 
+                            "nat": false, 
+                            "port": "p2"
+                        }, 
+                        {
+                            "ip": "10.0.1.1/24", 
+                            "mac": "88:00:00:00:01:00", 
+                            "nat": false, 
+                            "port": "p1"
+                        }
+                    ], 
+                    "late_commands": [
+                        "ethtool -K t0_b_r1-eth1 tso off tx off", 
+                        "ip l set dev t0_b_r1-eth1 mtu 1450", 
+                        "ethtool -K t0_b_r1-eth2 tso off tx off", 
+                        "ip l set dev t0_b_r1-eth2 mtu 1450", 
+                        "ip route del 10.0.1.0/24 dev t0_b_r1-eth1", 
+                        "ip route add 10.0.0.1 dev t0_b_r1-eth1", 
+                        "ip route add 10.0.0.0/24 via 10.0.0.1"
+                    ]
+                }
+            }, 
+            "site": 1, 
+            "subnet": "10.<TWIN-NO-OVERLAP>.1.0/24", 
+            "switches": {
+                "t0_b_b1": {
+                    "type": "bridge"
+                }
+            }, 
+            "systemid": 1, 
+            "twin": 0
+        }
+    }, 
+    "hosts": {
+        "t0_a_h1": {
+            "commands": [], 
+            "ip": "10.0.0.10/24", 
+            "late_commands": [
+                "ip route add default via 10.0.0.1", 
+                "ethtool -K t0_a_h1-eth0 tso off tx off", 
+                "ip l set dev t0_a_h1-eth0 mtu 1450"
+            ], 
+            "mac": "08:00:00:00:00:00"
+        }, 
+        "t0_a_h2": {
+            "commands": [], 
+            "ip": "10.0.0.11/24", 
+            "late_commands": [
+                "ip route add default via 10.0.0.1", 
+                "ethtool -K t0_a_h2-eth0 tso off tx off", 
+                "ip l set dev t0_a_h2-eth0 mtu 1450"
+            ], 
+            "mac": "08:00:00:00:00:01"
+        }, 
+        "t0_b_h1": {
+            "commands": [], 
+            "ip": "10.0.1.10/24", 
+            "late_commands": [
+                "ip route add default via 10.0.1.1", 
+                "ethtool -K t0_b_h1-eth0 tso off tx off", 
+                "ip l set dev t0_b_h1-eth0 mtu 1450"
+            ], 
+            "mac": "08:00:00:00:01:00"
+        }, 
+        "t0_b_h2": {
+            "commands": [], 
+            "ip": "10.0.1.11/24", 
+            "late_commands": [
+                "ip route add default via 10.0.1.1", 
+                "ethtool -K t0_b_h2-eth0 tso off tx off", 
+                "ip l set dev t0_b_h2-eth0 mtu 1450"
+            ], 
+            "mac": "08:00:00:00:01:01"
+        }
+    }, 
+    "links": [
+        [
+            "s1-p2", 
+            "t0_a_r1-p1"
+        ], 
+        [
+            "s2-p2", 
+            "t0_b_r1-p1"
+        ], 
+        [
+            "t0_a_b1", 
+            "t0_a_h1"
+        ], 
+        [
+            "t0_a_b1", 
+            "t0_a_h2"
+        ], 
+        [
+            "t0_a_b1", 
+            "t0_a_r1-p2"
+        ], 
+        [
+            "t0_b_b1", 
+            "t0_b_h1"
+        ], 
+        [
+            "t0_b_b1", 
+            "t0_b_h2"
+        ], 
+        [
+            "t0_b_b1", 
+            "t0_b_r1-p2"
+        ], 
+        [
+            "s2-p1", 
+            "c_s1"
+        ], 
+        [
+            "s1-p1", 
+            "c_s1"
+        ]
+    ], 
+    "routers": {
+        "t0_a_r1": {
+            "interface_configs": [
+                {
+                    "ip": "10.0.0.1/24", 
+                    "mac": "88:00:00:00:00:00", 
+                    "nat": false, 
+                    "port": "p2"
+                }, 
+                {
+                    "ip": "10.0.0.1/24", 
+                    "mac": "88:00:00:00:00:00", 
+                    "nat": false, 
+                    "port": "p1"
+                }
+            ], 
+            "late_commands": [
+                "ethtool -K t0_a_r1-eth1 tso off tx off", 
+                "ip l set dev t0_a_r1-eth1 mtu 1450", 
+                "ethtool -K t0_a_r1-eth2 tso off tx off", 
+                "ip l set dev t0_a_r1-eth2 mtu 1450", 
+                "ip route del 10.0.0.0/24 dev t0_a_r1-eth1", 
+                "ip route add 10.0.1.1 dev t0_a_r1-eth1", 
+                "ip route add 10.0.1.0/24 via 10.0.1.1"
+            ]
+        }, 
+        "t0_b_r1": {
+            "interface_configs": [
+                {
+                    "ip": "10.0.1.1/24", 
+                    "mac": "88:00:00:00:01:00", 
+                    "nat": false, 
+                    "port": "p2"
+                }, 
+                {
+                    "ip": "10.0.1.1/24", 
+                    "mac": "88:00:00:00:01:00", 
+                    "nat": false, 
+                    "port": "p1"
+                }
+            ], 
+            "late_commands": [
+                "ethtool -K t0_b_r1-eth1 tso off tx off", 
+                "ip l set dev t0_b_r1-eth1 mtu 1450", 
+                "ethtool -K t0_b_r1-eth2 tso off tx off", 
+                "ip l set dev t0_b_r1-eth2 mtu 1450", 
+                "ip route del 10.0.1.0/24 dev t0_b_r1-eth1", 
+                "ip route add 10.0.0.1 dev t0_b_r1-eth1", 
+                "ip route add 10.0.0.0/24 via 10.0.0.1"
+            ]
+        }
+    }, 
+    "switches": {
+        "c_s1": {
+            "type": "bridge"
+        }, 
+        "t0_a_b1": {
+            "type": "bridge"
+        }, 
+        "t0_b_b1": {
+            "type": "bridge"
+        }
+    }, 
+    "tunnels": {
+        "s1": {
+            "bgp_address": "172.16.0.10", 
+            "bgp_hop_address": "172.16.0.10", 
+            "bgp_peers": [
+                {
+                    "address": "172.16.0.11", 
+                    "port": 179
+                }
+            ], 
+            "bgp_port": 179, 
+            "interface_configs": [
+                {
+                    "ip": "172.16.0.10/24", 
+                    "port": "p1"
+                }, 
+                {
+                    "ip": "0.0.0.0/0", 
+                    "port": "p2"
+                }
+            ], 
+            "late_commands": [], 
+            "nve_config": [
+                {
+                    "bridge_address": "0.0.0.0", 
+                    "bridge_ports": [
+                        "p2"
+                    ], 
+                    "tunnel_port": "p1", 
+                    "vni": 0
+                }
+            ], 
+            "runtime_json": "pysrc/nve_controller/config/switch-runtime.json", 
+            "type": "p4nve", 
+            "vni_list": [
+                0
+            ]
+        }, 
+        "s2": {
+            "bgp_address": "172.16.0.11", 
+            "bgp_hop_address": "172.16.0.11", 
+            "bgp_peers": [
+                {
+                    "address": "172.16.0.10", 
+                    "port": 179
+                }
+            ], 
+            "bgp_port": 179, 
+            "interface_configs": [
+                {
+                    "ip": "172.16.0.11/24", 
+                    "port": "p1"
+                }, 
+                {
+                    "ip": "0.0.0.0/0", 
+                    "port": "p2"
+                }
+            ], 
+            "late_commands": [], 
+            "nve_config": [
+                {
+                    "bridge_address": "0.0.0.0", 
+                    "bridge_ports": [
+                        "p2"
+                    ], 
+                    "tunnel_port": "p1", 
+                    "vni": 0
+                }
+            ], 
+            "runtime_json": "pysrc/nve_controller/config/switch-runtime.json", 
+            "type": "p4nve", 
+            "vni_list": [
+                0
+            ]
+        }
+    }
+}

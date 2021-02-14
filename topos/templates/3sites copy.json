@@ -1,0 +1,38 @@
+{
+    "systems" : [
+        { "name": "a", "nodes": [
+            { "type": "router", "id": "r1" },
+            { "type": "bridge", "nodes": [
+                { "id": "r1" },
+                { "type": "host" },
+                { "type": "host" },
+                { "type": "host" }
+            ]}
+        ]},
+        { "name": "b", "nodes": [
+            { "type": "router", "id": "r1" },
+            { "type": "bridge", "nodes": [
+                { "id": "r1" },
+                { "type": "host" }
+            ]}
+        ]},
+        { "name": "c", "nodes": [
+            { "type": "router", "id": "r1" },
+            { "type": "bridge", "nodes": [
+                { "id": "r1" },
+                { "type": "host" }
+            ]}
+        ]},
+        { "name": "d", "nodes": [
+            { "type": "router", "id": "r1" },
+            { "type": "bridge", "nodes": [
+                { "id": "r1" },
+                { "type": "host" }
+            ]}
+        ]}
+    ],
+    "twins": 2,
+    "sites": 2,
+    "nvetype": "p4-evpn-geneve",
+    "placement": "random"
+}

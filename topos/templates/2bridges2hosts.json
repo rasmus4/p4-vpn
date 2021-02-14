@@ -1,0 +1,18 @@
+{
+    "systems" : [
+        { "name": "a", "nodes": [
+            { "type": "bridge", "nodes": [
+                { "type": "host" }
+            ]}
+        ]},
+        { "name": "b", "nodes": [
+            { "type": "bridge", "nodes": [
+                { "type": "host" }
+            ]}
+        ]}
+    ],
+    "twins": 1,
+    "sites": 2,
+    "nvetype": "p4-evpn-geneve",
+    "placement": "random"
+}

@@ -1,0 +1,183 @@
+{
+    "hosts": {
+        "a1-h1": {
+            "ip": "10.0.0.10/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.0.1" ]
+        },
+        "a1-h2": {
+            "ip": "10.0.0.11/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.0.1" ]
+        },
+        "a2-h1": {
+            "ip": "10.0.0.10/24",
+            "mac": "08:00:00:00:01:11",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.0.1" ]
+        },
+        "a2-h2": {
+            "ip": "10.0.0.11/24",
+            "mac": "08:00:00:00:02:22",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.0.1" ]
+        },
+        "b1-h1": {
+            "ip": "10.0.40.10/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.40.1" ]
+        },
+        "b2-h1": {
+            "ip": "10.0.40.10/24",
+            "mac": "08:00:00:00:03:33",
+            "commands": [],
+            "late_commands": [ "ip route add default via 10.0.40.1" ]
+        }
+    },
+    "switches": {
+        "a1-s1": { "type": "bridge" },
+        "a2-s1": { "type": "bridge" },
+        "a1-s2": { "type": "bridge" },
+        "b1-s1": { "type": "bridge" },
+        "b2-s1": { "type": "bridge" }
+    },
+    "routers": {
+        "a1-r1": {
+            "interface_configs": [
+                { "ip": "10.0.0.1/24", "port": "p1", "nat": false },
+                { "ip": "10.0.0.1/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [ 
+                "ip route del 10.0.0.0/24 dev a1-r1-eth1",
+                "ip route add 10.0.40.1 dev a1-r1-eth1",
+                "ip route add 10.0.40.0/24 via 10.0.40.1"
+            ]
+        },
+        "a2-r1": {
+            "interface_configs": [
+                { "ip": "10.0.0.1/24", "port": "p1", "nat": false },
+                { "ip": "10.0.0.1/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [ 
+                "ip route del 10.0.0.0/24 dev a2-r1-eth1",
+                "ip route add 10.0.40.1 dev a2-r1-eth1",
+                "ip route add 10.0.40.0/24 via 10.0.40.1"
+            ]
+        },
+        "b1-r1": {
+            "interface_configs": [
+                { "ip": "10.0.40.1/24", "port": "p1", "nat": false },
+                { "ip": "10.0.40.1/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [ 
+                "ip route del 10.0.40.0/24 dev b1-r1-eth1",
+                "ip route add 10.0.0.1 dev b1-r1-eth1",
+                "ip route add 10.0.0.0/24 via 10.0.0.1"
+            ]
+        },
+        "b2-r1": {
+            "interface_configs": [
+                { "ip": "10.0.40.1/24", "port": "p1", "nat": false },
+                { "ip": "10.0.40.1/24", "port": "p2", "nat": false }
+            ],
+            "late_commands": [ 
+                "ip route del 10.0.40.0/24 dev b2-r1-eth1",
+                "ip route add 10.0.0.1 dev b2-r1-eth1",
+                "ip route add 10.0.0.0/24 via 10.0.0.1"
+            ]
+        }
+    },
+    "tunnels": {
+        "vtep1": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "172.16.0.1/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" },
+                { "ip": "0.0.0.0/0", "port": "p3" },
+                { "ip": "0.0.0.0/0", "port": "p4" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p2" ]
+                },
+                {
+                    "vni": 20,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p3" ]
+                },
+                {
+                    "vni": 30,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.2",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p4" ]
+                }
+            ],
+            "late_commands": []
+        },
+        "vtep2": {
+            "type": "vxlan",
+            "interface_configs": [
+                { "ip": "172.16.0.2/24", "port": "p1" },
+                { "ip": "0.0.0.0/0", "port": "p2" },
+                { "ip": "0.0.0.0/0", "port": "p3" },
+                { "ip": "0.0.0.0/0", "port": "p4" }
+            ],
+            "vxlan_config": [
+                {
+                    "vni": 10,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p2" ]
+                },
+                {
+                    "vni": 20,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p3" ]
+                },
+                {
+                    "vni": 30,
+                    "tunnel_port": "p1",
+                    "local": "any",
+                    "remote": "172.16.0.1",
+                    "dstport": 4789,
+                    "bridge_address": "0.0.0.0",
+                    "bridge_ports": [ "p4" ]
+                }
+            ],
+            "late_commands": []
+        }
+    },
+    "links": [
+        ["vtep1-p1", "vtep2-p1"],
+        ["vtep1-p2", "b1-r1-p1"], ["vtep1-p3", "b2-r1-p1"], ["vtep1-p4", "a1-s2-p1"],
+        ["vtep2-p2", "a1-r1-p1"], ["vtep2-p3", "a2-r1-p1"], ["vtep2-p4", "a1-s1-p1"],
+        ["a1-s1-p2", "a1-h1"], ["a1-s1-p3", "a1-r1-p2"],
+        ["a2-s1-p1", "a2-h1"], ["a2-s1-p2", "a2-h2"], ["a2-s1-p3", "a2-r1-p2"],
+        ["b1-s1-p2", "b1-h1"], ["b1-s1-p1", "b1-r1-p2"],
+        ["b2-s1-p2", "b2-h1"], ["b2-s1-p1", "b2-r1-p2"],
+        ["a1-s2-p2", "a1-h2"]
+    ]
+}

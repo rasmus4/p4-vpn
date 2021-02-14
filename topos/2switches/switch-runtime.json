@@ -1,0 +1,38 @@
+{
+  "target": "bmv2",
+  "p4info": "build/switch.p4.p4info.txt",
+  "bmv2_json": "build/switch.json",
+  "table_entries": [
+    {
+      "table": "MyIngress.L3.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.0.0", 8]
+      },
+      "action_name": "NoAction",
+      "action_params": {}
+    }
+  ],
+  "multicast_group_entries" : [
+    {
+      "multicast_group_id" : 1,
+      "replicas" : [
+        {
+          "egress_port" : 1,
+          "instance" : 1
+        },
+        {
+          "egress_port" : 2,
+          "instance" : 1
+        },
+        {
+          "egress_port" : 3,
+          "instance" : 1
+        },
+        {
+          "egress_port" : 4,
+          "instance" : 1
+        }
+      ]
+    }
+  ]
+}

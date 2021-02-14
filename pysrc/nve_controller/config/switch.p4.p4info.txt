@@ -1,0 +1,329 @@
+pkg_info {
+  arch: "v1model"
+}
+tables {
+  preamble {
+    id: 33589608
+    name: "MyIngress.Geneve.egress_dmac_vni"
+    alias: "egress_dmac_vni"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.geneve.vni"
+    bitwidth: 24
+    match_type: EXACT
+  }
+  match_fields {
+    id: 2
+    name: "hdr.inner_ethernet.dstAddr"
+    bitwidth: 48
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16817078
+  }
+  action_refs {
+    id: 16785239
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33591708
+    name: "MyIngress.Geneve.ingress_port_to_vni"
+    alias: "ingress_port_to_vni"
+  }
+  match_fields {
+    id: 1
+    name: "standard_metadata.ingress_port"
+    bitwidth: 9
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16802683
+  }
+  action_refs {
+    id: 16782622
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33555350
+    name: "MyIngress.Geneve.ingress_dmac_vni"
+    alias: "ingress_dmac_vni"
+  }
+  match_fields {
+    id: 1
+    name: "meta.vni"
+    bitwidth: 24
+    match_type: EXACT
+  }
+  match_fields {
+    id: 2
+    name: "hdr.ethernet.dstAddr"
+    bitwidth: 48
+    match_type: LPM
+  }
+  action_refs {
+    id: 16795167
+  }
+  action_refs {
+    id: 16817078
+  }
+  action_refs {
+    id: 16785239
+  }
+  action_refs {
+    id: 16782622
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33573865
+    name: "MyIngress.Geneve.ingress_smac_vni"
+    alias: "ingress_smac_vni"
+  }
+  match_fields {
+    id: 1
+    name: "meta.vni"
+    bitwidth: 24
+    match_type: EXACT
+  }
+  match_fields {
+    id: 2
+    name: "hdr.ethernet.srcAddr"
+    bitwidth: 48
+    match_type: EXACT
+  }
+  match_fields {
+    id: 3
+    name: "standard_metadata.ingress_port"
+    bitwidth: 9
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16826202
+  }
+  action_refs {
+    id: 16800567
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33554628
+    name: "MyEgress.Geneve.remote_nexthop"
+    alias: "remote_nexthop"
+  }
+  match_fields {
+    id: 1
+    name: "hdr.geneve.vni"
+    bitwidth: 24
+    match_type: EXACT
+  }
+  match_fields {
+    id: 2
+    name: "hdr.ipv4.dstAddr"
+    bitwidth: 32
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16835456
+  }
+  action_refs {
+    id: 16779123
+  }
+  size: 1024
+}
+tables {
+  preamble {
+    id: 33582921
+    name: "MyEgress.Geneve.nve_broadcast"
+    alias: "nve_broadcast"
+  }
+  match_fields {
+    id: 1
+    name: "standard_metadata.egress_port"
+    bitwidth: 9
+    match_type: EXACT
+  }
+  action_refs {
+    id: 16793691
+  }
+  action_refs {
+    id: 16779123
+  }
+  size: 1024
+}
+actions {
+  preamble {
+    id: 16800567
+    name: "NoAction"
+    alias: "NoAction"
+  }
+}
+actions {
+  preamble {
+    id: 16782622
+    name: "MyIngress.Geneve.drop"
+    alias: "MyIngress.Geneve.drop"
+  }
+}
+actions {
+  preamble {
+    id: 16817078
+    name: "MyIngress.Geneve.broadcast"
+    alias: "broadcast"
+  }
+}
+actions {
+  preamble {
+    id: 16785239
+    name: "MyIngress.Geneve.local_forward"
+    alias: "local_forward"
+  }
+  params {
+    id: 1
+    name: "port"
+    bitwidth: 9
+  }
+}
+actions {
+  preamble {
+    id: 16807951
+    name: "MyIngress.Geneve.decapsulate"
+    alias: "decapsulate"
+  }
+}
+actions {
+  preamble {
+    id: 16802683
+    name: "MyIngress.Geneve.set_ingress_vni"
+    alias: "set_ingress_vni"
+  }
+  params {
+    id: 1
+    name: "vni"
+    bitwidth: 24
+  }
+}
+actions {
+  preamble {
+    id: 16784755
+    name: "MyIngress.Geneve.set_meta_vni"
+    alias: "set_meta_vni"
+  }
+}
+actions {
+  preamble {
+    id: 16795167
+    name: "MyIngress.Geneve.remote_forward"
+    alias: "MyIngress.Geneve.remote_forward"
+  }
+  params {
+    id: 1
+    name: "srcAddr"
+    bitwidth: 32
+  }
+  params {
+    id: 2
+    name: "dstAddr"
+    bitwidth: 32
+  }
+}
+actions {
+  preamble {
+    id: 16826202
+    name: "MyIngress.Geneve.local_digest"
+    alias: "local_digest"
+  }
+}
+actions {
+  preamble {
+    id: 16816924
+    name: "MyEgress.drop"
+    alias: "MyEgress.drop"
+  }
+}
+actions {
+  preamble {
+    id: 16779123
+    name: "MyEgress.Geneve.drop"
+    alias: "MyEgress.Geneve.drop"
+  }
+}
+actions {
+  preamble {
+    id: 16835456
+    name: "MyEgress.Geneve.remote_forward"
+    alias: "MyEgress.Geneve.remote_forward"
+  }
+  params {
+    id: 1
+    name: "dstAddr"
+    bitwidth: 32
+  }
+}
+actions {
+  preamble {
+    id: 16793691
+    name: "MyEgress.Geneve.remote_broadcast"
+    alias: "remote_broadcast"
+  }
+  params {
+    id: 1
+    name: "srcAddr"
+    bitwidth: 32
+  }
+}
+digests {
+  preamble {
+    id: 385880267
+    name: "local_digest_t"
+    alias: "local_digest_t"
+  }
+  type_spec {
+    struct {
+      name: "local_digest_t"
+    }
+  }
+}
+type_info {
+  structs {
+    key: "local_digest_t"
+    value {
+      members {
+        name: "vni"
+        type_spec {
+          bitstring {
+            bit {
+              bitwidth: 24
+            }
+          }
+        }
+      }
+      members {
+        name: "smac"
+        type_spec {
+          bitstring {
+            bit {
+              bitwidth: 48
+            }
+          }
+        }
+      }
+      members {
+        name: "inPort"
+        type_spec {
+          bitstring {
+            bit {
+              bitwidth: 9
+            }
+          }
+        }
+      }
+    }
+  }
+}
