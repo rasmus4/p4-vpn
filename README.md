@@ -1,6 +1,6 @@
 # P4 VPN
 
-This repository contains the source code for the implementations used by in the thesis "Creating Digital Twin Distributed Networks Using Switches With Programmable Data Plane".
+This repository contains the source code for the implementations used in the thesis "Creating Digital Twin Distributed Networks Using Switches With Programmable Data Plane".
 
 This repository contains p4runtime_lib (in the directory tutorials) from the [p4lang/tutorials](https://github.com/p4lang/tutorials) repository, converted to Python 3.
 
